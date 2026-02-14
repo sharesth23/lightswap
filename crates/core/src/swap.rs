@@ -22,3 +22,11 @@ pub enum SwapError {
     #[error("invalid state transition")]
     InvalidTransition,
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Swap {
+    pub id: Uuid,
+    pub payment_hash: String,
+    pub amount_sat: u64,
+    pub state: SwapState,
+}
