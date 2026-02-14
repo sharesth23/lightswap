@@ -8,8 +8,17 @@ pub enum SwapState {
     InvoiceGenerated, 
     OnChainFunded,
     LighteningFunded,
-    Lightening
-    Pending,
+    LighteningSettled,
+    PreimageRevealed,
     Completed,
-    Failed,
+    Cancelled,
+    Refunded,
+    Refunfdable,
+
+}
+
+#[derive(Error, Debug)]
+pub enum SwapError {
+    #[error("invalid state transition")]
+    InvalidTransition,
 }
