@@ -30,3 +30,12 @@ pub struct Swap {
     pub amount_sat: u64,
     pub state: SwapState,
 }
+impl Swap {
+    pub fn new(payment_hash: String, amount_sat: u64) -> Self {
+        Self {
+            id: Uuid::new_v4(),
+            payment_hash,
+            amount_sat,
+            state: SwapState::Created,
+        }
+    }
